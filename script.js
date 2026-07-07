@@ -1,35 +1,9 @@
-const paper = document.querySelector(".paper");
+const glow = document.getElementById("cursorGlow");
 
-const observer = new IntersectionObserver((entries)=>{
+document.addEventListener("mousemove",(e)=>{
 
-entries.forEach(entry=>{
+    glow.style.left=e.clientX+"px";
 
-if(entry.isIntersecting){
-
-entry.target.animate(
-
-[
-{
-opacity:0,
-transform:"translateY(80px)"
-},
-{
-opacity:1,
-transform:"translateY(0)"
-}
-],
-
-{
-duration:1200,
-fill:"forwards"
-}
-
-);
-
-}
+    glow.style.top=e.clientY+"px";
 
 });
-
-});
-
-observer.observe(paper);

@@ -1,82 +1,431 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redação Nota 1000 | Williandro M. Schmidt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --card: #12121a;
+  --text: #e8e8f0;
+  --muted: #8b8ba7;
+  --accent: #7c3aed;
+  --accent-2: #22d3ee;
+  --glow: rgba(124, 58, 237, 0.5);
+}
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    <title>Agrinho 2026</title>
+html {
+  scroll-behavior: smooth;
+}
 
-    <link rel="stylesheet" href="style.css">
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(34, 211, 238, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 40% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+  z-index: -1;
+  animation: gradientShift 15s ease infinite;
+}
 
+@keyframes gradientShift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+  box-shadow: 0 0 40px var(--glow);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 40px var(--glow); }
+  50% { transform: scale(1.05); box-shadow: 0 0 60px var(--glow); }
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #fff, #a5a5c5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--muted);
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+.scroll-btn {
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: var(--text);
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.scroll-btn:hover {
+  background: rgba(124, 58, 237, 0.2);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+}
+
+.redacao-section {
+  padding: 100px 0;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 60px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 80px rgba(124, 58, 237, 0.2);
+}
+
+.card-header {
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tema {
+  color: var(--accent-2);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.titulo-redacao {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.meta {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.meta-item strong {
+  color: var(--text);
+}
+
+.redacao-texto {
+  font-size: 1.125rem;
+  line-height: 2;
+  color: #d0d0e0;
+}
+
+.redacao-texto p {
+  margin-bottom: 24px;
+  text-align: justify;
+}
+
+.redacao-texto p:first-of-type::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  font-weight: 900;
+  float: left;
+  line-height: 0.8;
+  margin: 8px 12px 0 0;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.competencias {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.competencias h3 {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.comp-item {
+  background: rgba(124, 58, 237, 0.05);
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.comp-item:hover {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: var(--accent);
+  transform: translateX(5px);
+}
+
+.comp-item .num {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.comp-item .nota {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+footer {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer a:hover {
+  color: var(--accent-2);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 32px 24px;
+  }
+  
+  .titulo-redacao {
+    font-size: 1.75rem;
+  }
+  
+  .redacao-texto {
+    font-size: 1rem;
+  }
+}
+</style>
 </head>
-
 <body>
-
-<section class="hero">
-
-    <div class="overlay"></div>
-
-    <div class="hero-content">
-
-        <span class="badge">
-            🌱 Projeto Agrinho
-        </span>
-
-        <h1>
-            Campo e Cidade:<br>
-            Uma conexão que transforma o futuro.
-        </h1>
-
-        <p>
-
-            Conheça minha redação desenvolvida para o Programa Agrinho,
-            valorizando a educação, a sustentabilidade e a união entre o
-            campo e a cidade.
-
-        </p>
-
-        <a href="#redacao">
-            <button>
-                Ler Redação ↓
-            </button>
-        </a>
-
+  <section class="hero">
+    <div class="container">
+      <div class="badge fade-in">
+        ✨ NOTA 1000
+      </div>
+      <h1 class="fade-in" style="animation-delay: 0.2s">Redação Agrinho | 1ª Série - Ensino Médio</h1>
+      <p class="subtitle fade-in" style="animation-delay: 0.4s">
+        Análise crítica sobre o agronegócio brasileiro e os desafios da sustentabilidade
+      </p>
+      <button class="scroll-btn fade-in" style="animation-delay: 0.6s" onclick="document.getElementById('redacao').scrollIntoView()">
+        Ler Redação ↓
+      </button>
     </div>
+  </section>
 
-</section>
+  <section id="redacao" class="redacao-section">
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <div class="tema">Tema</div>
+          <h2 class="titulo-redacao">Desenvolvimento Sustentável no Campo: O Papel da tecnologia, do Estado e do Cooperativismo</h2>
+          <div class="meta">
+            <div class="meta-item">
+              <span>Autor:</span>
+              <strong>Williandro M. Schmidt</strong>
+            </div>
+            <div class="meta-item">
+              <span>Nota:</span>
+              <strong>1000/1000</strong>
+            </div>
+            <div class="meta-item">
+              <span>Ano:</span>
+              <strong>2026</strong>
+            </div>
+          </div>
+        </div>
 
-<section id="redacao">
+        <div class="redacao-texto">
+          <p>
+            A modernização da agricultura brasileira gerou o meio técnico-científico-informacional, conceito de Milton Santos pelo espaço reordenado pela ciência. Contudo, o "Agro Forte" ainda enfrenta o desafio de superar suas externalidades negativas, conciliando o dinamismo econômico com a justiça socioambiental.
+          </p>
+          <p>
+            Em primeira análise, a otimização de terras já antropizadas prescinde de novos desmatamentos, pois dados do MapBiomas indicam que a conversão de pastagens degradadas é suficiente para absorver a expansão da safra. Nesse panorama, a Embrapa desempenha papel fulcral ao desenvolver sistemas regenerativos com a Integração Lavoura-Pecuária-Floresta (ILPF). Todavia, o Paradoxo de Jevons alerta que a eficiência técnica eleva a rentabilidade da terra, o que pode capitalizar o setor para novas expansões ilegais. Logo, a inovação agronômica deve aliar-se ao monitoramento estatal coercitivo e ao desmatamento zero.
+          </p>
+          <p>
+            Ademais, o cooperativismo do sul, liderado por gigantes como Coamo, Lar e Copacol, exemplifica como a governança setorial se alinha à conformidade ambiental e à rastreabilidade exigidas pelo mercado internacional. Não obstante, essa "blindagem verde" não apaga as assimetrias históricas do campo. Como sinaliza o sociólogo José de Souza Martins, a modernização convive com a concentração fundiária e o uso intensivo de insumos químicos. A autorregulação corporativa é necessária, mas insuficiente sem considerar os impactos ecológicos nas comunidades tradicionais periféricas.
+          </p>
+          <p>
+            Infere-se, portanto, que a perenidade do agronegócio depende da superação dessas contradições estruturais. Cabe ao Ministério da Agricultura, em parceria com as cooperativas, condicionar o crédito do Plano ABC+ à transição ecológica e ao manejo sustentável. Paralelamente, essas instituições devem utilizar os dados de satélite do MapBiomas para a auditoria pública e aplicação de sanções imediatas e infratores. Só assim o Brasil consolidará um modelo de desenvolvimento verdadeiramente sustentável.
+          </p>
+        </div>
 
-<div class="paper">
+        <div class="competencias">
+          <h3>Detalhamento por Competência</h3>
+          <div class="grid">
+            <div class="comp-item">
+              <div class="num">Competência 1</div>
+              <div class="nota">200</div>
+              <div>Domínio da norma culta</div>
+            </div>
+            <div class="comp-item">
+              <div class="num">Competência 2</div>
+              <div class="nota">200</div>
+              <div>Compreensão do tema</div>
+            </div>
+            <div class="comp-item">
+              <div class="num">Competência 3</div>
+              <div class="nota">200</div>
+              <div>Argumentação</div>
+            </div>
+            <div class="comp-item">
+              <div class="num">Competência 4</div>
+              <div class="nota">200</div>
+              <div>Mecanismos linguísticos</div>
+            </div>
+            <div class="comp-item">
+              <div class="num">Competência 5</div>
+              <div class="nota">200</div>
+              <div>Proposta de intervenção</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h2>
+  <footer>
+    <div class="container">
+      <p>Feito com 💜 por <a href="#">Williandro M. Schmidt</a> | Redação Nota 1000</p>
+    </div>
+  </footer>
 
-Minha Redação
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
 
-</h2>
-
-<p>
-
-COLE SUA REDAÇÃO AQUI...
-
-</p>
-
-</div>
-
-</section>
-
-<footer>
-
-Feito com ❤️ para o Agrinho 2026
-
-</footer>
-
-<script src="script.js"></script>
-
+document.querySelectorAll('.card, .comp-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'all 0.6s ease';
+  observer.observe(el);
+});
+</script>
 </body>
-
 </html>
